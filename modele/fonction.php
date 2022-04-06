@@ -46,8 +46,8 @@ function validerinscription($tableau)
 
     // connection à la BDD
 
-     $res = $dbh ->prepare($req);
-     $res -> execute();
+     $res1 = $dbh ->prepare($req1);
+     $res1 -> execute();
 
     // return($updateplace);
 }
