@@ -12,14 +12,13 @@
                </tr>
            </thead>
            <tbody>
-               <?php foreach ($inscritt as $element): ?>
+               <?php for ($list_inscrit as $element): ?>
                    <tr>
-                       <td><?php echo $element['jourheure']; ?></td>
-                       <td><?php echo $element['nbPlace']; ?></td>
-                       <td><?php echo $element['nom']; ?></td>
+                   <td><?php echo $element['nom'],'   ',$element['prenom']; ?></td>
+                       <td><?php echo $element['']; ?></td>
                        <td><?php echo $element['idInstrument']; ?></td>
-                       <td><a href="index.php?action=inscription&numero=<?php echo $element['id']?>">Inscription</a></td>
+                       <td><?php echo $element['id']?>">Inscription</a></td>
                    </tr>
-               <?php endforeach; ?> 
+               <?php ; ?> 
            </tbody>
        </table>

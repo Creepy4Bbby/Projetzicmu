@@ -46,7 +46,7 @@ function validerinscription($tableau)
           $res -> execute();
 
         
-          
+
         // //   fetchall c'est pour select uniquement ça recupere les données 
         //   $insertinscription = $res->fetchAll();
 
@@ -91,23 +91,28 @@ function validerinscription($tableau)
 
 }
 
-function inscrit(){
+// function inscrit(){
 
-include 'db_connection.php';
+// include 'db_connection.php';
 
 // 1) insertion de personne
+// nom prenom
+// adhérent id 
+// date heure cours
+// professeur qui assure le cours
+// et l'instrument
 
-  $req = "select c.jourheure,c.nbPlace,c.idInstrument,p.nom from cours c
-//   inner join professeurs pr on c.idProfesseur = pr.id 
-//   inner join personne p on p.id = pr.id";
+//   $req = "select c.jourheure,c.nbPlace,c.idInstrument,p.nom from cours c
+//           inner join professeurs pr on c.idProfesseur = pr.id 
+//           inner join personne p on p.id = pr.id";
 
 //           $res = $dbh ->prepare($req);
 //           $res -> execute();
       
-//         //   fetchall c'est pour select uniquement ça recupere les données 
-//           $inscritt = $res->fetchAll();
+        //   fetchall c'est pour select uniquement ça recupere les données 
+        //  $inscritt = $res->fetchAll();
 
-// }
+//  }
 
 
 
