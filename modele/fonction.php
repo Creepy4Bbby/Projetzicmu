@@ -4,6 +4,9 @@
 
 function recupcour()
 {
+    
+
+    
 
     include 'db_connection.php';
 
@@ -21,7 +24,14 @@ function recupcour()
     //affiché la requête ↓
     //  var_dump($listcours);
     return($listcours);
+
+   
+
+
+
+// end fonction
 }
+
 
 function validerinscription($tableau)
 {
@@ -34,44 +44,60 @@ function validerinscription($tableau)
 
           $res = $dbh ->prepare($req);
           $res -> execute();
-      
+
+        
+          
         // //   fetchall c'est pour select uniquement ça recupere les données 
         //   $insertinscription = $res->fetchAll();
 
-  $req1 = "insert into adherent (id)
-          Values ('$tableau[5]')";
 
+
+ $req0 = "select id from personne 
+          WHERE  nom = '$tableau[0]' and 
+                 prenom = '$tableau[1]' and 
+                 tel = '$tableau[2]'";
+
+    
+         $res0 = $dbh ->prepare($req0);
+         $res0 -> execute();
+
+          $idpers =$res0 ->fetch()[0];
+
+
+   //   j'insere le tout dans inscription $req et $req1
+        
+
+         $req1 = "insert into adherents (id)
+          Values ($idpers)";
+          echo $req1;
           $res1 = $dbh ->prepare($req1);
           $res1 -> execute();
+
+     
 
 
 // ancienne valeur - 1 pour update 
 // 2) remplacer le nb de places : 
 
-    $req2 = "Update cours
-    SET nbPlace = nbPlace - 1 
-    WHERE id = $tableau[5]";
+            $req3 = "Update cours
+            SET nbPlace = nbPlace - 1 
+            WHERE id = $tableau[5]";
 
-    // connection à la BDD
+// connection à la BDD
 
-     $res2 = $dbh ->prepare($req2);
-     $res2 -> execute();
-
-    // return($updateplace);
-
-
-
+            $res3 = $dbh ->prepare($req3);
+            $res3 -> execute();
 
 
 }
 
-// function inscrit(){
+function inscrit(){
 
-//   include 'db_connection.php';
+include 'db_connection.php';
 
-//     // 1) insertion de personne
+// 1) insertion de personne
 
-//   $req = "select c.jourheure,c.nbPlace,c.idInstrument,p.nom from cours c
+  $req = "select c.jourheure,c.nbPlace,c.idInstrument,p.nom from cours c
 //   inner join professeurs pr on c.idProfesseur = pr.id 
 //   inner join personne p on p.id = pr.id";
 
