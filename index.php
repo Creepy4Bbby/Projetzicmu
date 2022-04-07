@@ -40,7 +40,7 @@ if(!isset($_REQUEST['action']))
                     case 'inscription':
                         //Affiché la listes des inscrit
                         $recupnum = $_REQUEST["numero"];
-                        include ("vues/list_inscription.php");
+                        include ("vues/inscription.php");
                         break;
               
 
@@ -54,7 +54,6 @@ if(!isset($_REQUEST['action']))
                         {
 
                             //Htmlchars etc.. permet d'évité les injection javascripts et autres 
-                        $recupnum = htmlspecialchars(isset($_POST['numero']))? $_POST['numero'] : '' ;
                         $nom = htmlspecialchars(isset($_POST['nom']))? $_POST['nom'] : '' ;
                         $prenom = htmlspecialchars(isset($_POST['prenom']))? $_POST['prenom'] : '' ;
                         $tel = htmlspecialchars(isset($_POST['tel']))? $_POST['tel'] : '' ;

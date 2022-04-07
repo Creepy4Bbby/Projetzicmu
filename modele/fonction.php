@@ -49,7 +49,8 @@ function validerinscription($tableau)
 // 2) remplacer le nb de places : 
 
     $req2 = "Update cours
-    SET nbPlaces = nbPlaces - 1 ";
+    SET nbPlace = nbPlace - 1 
+    WHERE id = $tableau[5]";
 
     // connection à la BDD
 
