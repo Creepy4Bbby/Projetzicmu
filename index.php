@@ -34,6 +34,7 @@ if(!isset($_REQUEST['action']))
          
                 case 'list_inscription':
                     //Affiché la listes des inscrit
+                    $list_inscrit = inscrit();
                     include ("vues/list_inscription.php");
                     break;
 
@@ -59,14 +60,14 @@ if(!isset($_REQUEST['action']))
                         $tel = htmlspecialchars(isset($_POST['tel']))? $_POST['tel'] : '' ;
                         $adresse = htmlspecialchars(isset($_POST['adresse']))? $_POST['adresse'] : '' ;
                         $mail= htmlspecialchars(isset($_POST['mail']))? $_POST['mail'] : '' ;
-                                    if (!filter_input(INPUT_POST, 'mail', FILTER_VALIDATE_EMAIL))
-                                    {
-                                    echo "E-Mail is not valid";
-                                    }
-                                    else
-                                    {
-                                    echo "E-Mail is valid";
-                                    }
+                                    // if (!filter_input(INPUT_POST, 'mail', FILTER_VALIDATE_EMAIL))
+                                    // {
+                                    // echo "E-Mail is not valid";
+                                    // }
+                                    // else
+                                    // {
+                                    // echo "E-Mail is valid";
+                                    // }
                         $numero= htmlspecialchars(isset($_POST['numero']))? $_POST['numero'] : '' ;
 
 
@@ -83,7 +84,7 @@ if(!isset($_REQUEST['action']))
                         include("vues/list_inscription.php");
                         break;
 
-                        // case '':
+                      
 
                         
                         }

@@ -24,8 +24,6 @@
                         <nav id="nav">
 								<ul>
 									<li><a class="icon solid fa-home" href="index.php?action=accueil"><span>Accueil</span></a></li>
-									<li>
-										
 									<li><a class="icon solid fa-cog" href="index.php?action=cours"><span>Cours</span></a></li>
 									<li><a class="icon solid fa-retweet" href="index.php?action=list_inscription"><span>Inscription</span></a></li>
 									<!-- <li><a class="icon solid fa-sitemap" href="no-sidebar.html"><span>No Sidebar</span></a></li> -->
