@@ -35,44 +35,52 @@ function validerinscription($tableau)
           $res = $dbh ->prepare($req);
           $res -> execute();
       
-        //   fetchall c'esty pour select uniquement ça recupere les données 
-          $insertinscription = $res->fetchAll();
+        // //   fetchall c'est pour select uniquement ça recupere les données 
+        //   $insertinscription = $res->fetchAll();
+
+  $req1 = "insert into adherent (id)
+          Values ('$tableau[5]')";
+
+          $res1 = $dbh ->prepare($req1);
+          $res1 -> execute();
+
 
 // ancienne valeur - 1 pour update 
 // 2) remplacer le nb de places : 
 
-    $req1 = "Update cours
+    $req2 = "Update cours
     SET nbPlaces = nbPlaces - 1 ";
 
     // connection à la BDD
 
-     $res1 = $dbh ->prepare($req1);
-     $res1 -> execute();
+     $res2 = $dbh ->prepare($req2);
+     $res2 -> execute();
 
     // return($updateplace);
+
+
+
+
+
 }
 
-function inscrit(){
+// function inscrit(){
 
-  include 'db_connection.php';
+//   include 'db_connection.php';
 
-    // 1) insertion de personne
+//     // 1) insertion de personne
 
-  $req = "select c.id, c.jourheure,c.nbPlace,c.idInstrument,p.nom from cours c
-  inner join professeurs pr on c.idProfesseur = pr.id 
-  inner join personne p on p.id = pr.id";
+//   $req = "select c.jourheure,c.nbPlace,c.idInstrument,p.nom from cours c
+//   inner join professeurs pr on c.idProfesseur = pr.id 
+//   inner join personne p on p.id = pr.id";
 
-  $req = "select c.jourheure,c.nbPlace,c.idInstrument,p.nom from cours c
-  inner join professeurs pr on c.idProfesseur = pr.id 
-  inner join personne p on p.id = pr.id";
-
-          $res = $dbh ->prepare($req);
-          $res -> execute();
+//           $res = $dbh ->prepare($req);
+//           $res -> execute();
       
-        //   fetchall c'est pour select uniquement ça recupere les données 
-          $inscritt = $res->fetchAll();
+//         //   fetchall c'est pour select uniquement ça recupere les données 
+//           $inscritt = $res->fetchAll();
 
-}
+// }
 
 
 

@@ -18,8 +18,8 @@ if(!isset($_REQUEST['action']))
         switch ($action)
             {
                 
-                case 'acceuil':
-                    include ("vues/acceuil.php");
+                case 'accueil':
+                    include ("vues/accueil.php");
                     break;
 
                 case 'cours':
@@ -31,11 +31,18 @@ if(!isset($_REQUEST['action']))
                     include("vues/cours.php");
                     break;
 
-                case 'inscription':
+         
+                case 'list_inscription':
                     //Affiché la listes des inscrit
-                    $recupnum = $_REQUEST["numero"];
-                    include ("vues/inscription.php");
+                    include ("vues/list_inscription.php");
                     break;
+
+                    case 'inscription':
+                        //Affiché la listes des inscrit
+                        $recupnum = $_REQUEST["numero"];
+                        include ("vues/list_inscription.php");
+                        break;
+              
 
 //Permet de ( qd tu cliques sur le bouton inscrire ) ça va dessus ↓ 
                 case 'validerInscription':
@@ -47,12 +54,13 @@ if(!isset($_REQUEST['action']))
                         {
 
                             //Htmlchars etc.. permet d'évité les injection javascripts et autres 
+                        $recupnum = htmlspecialchars(isset($_POST['numero']))? $_POST['numero'] : '' ;
                         $nom = htmlspecialchars(isset($_POST['nom']))? $_POST['nom'] : '' ;
                         $prenom = htmlspecialchars(isset($_POST['prenom']))? $_POST['prenom'] : '' ;
                         $tel = htmlspecialchars(isset($_POST['tel']))? $_POST['tel'] : '' ;
                         $adresse = htmlspecialchars(isset($_POST['adresse']))? $_POST['adresse'] : '' ;
                         $mail= htmlspecialchars(isset($_POST['mail']))? $_POST['mail'] : '' ;
-                                    if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL))
+                                    if (!filter_input(INPUT_POST, 'mail', FILTER_VALIDATE_EMAIL))
                                     {
                                     echo "E-Mail is not valid";
                                     }
