@@ -151,14 +151,27 @@ inner join instrument as i on i.id = c.idInstrument
 // end fonction
 }
 
-function sup(){
 
+// Supprimé une ligne d'inscription 
 
+// idAD + L'id d'adhérent et idC = id de cours 
+
+function sup($idAd,$idC){
+
+        include 'db_connection.php';
+
+        
   $req = "delete from inscription
-          where  idAdherent = ? and idCours = ?";
+          where  idAdherent = ? and idCours = ? ";
+
+         echo $idAd;
+         echo $idC;
+
 
         $res = $dbh ->prepare($req);
-        $res ->excute();
+        $res ->bindParam(1,$idAd);
+        $res ->bindParam(2,$idC);
+        $res ->execute();
 
   
   

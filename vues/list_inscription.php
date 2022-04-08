@@ -40,8 +40,8 @@
                       <!-- //echo $element['idAd'] -->
                        <td><?php echo $element['idC']?></td> 
                               <!-- echo $i;  -->
-                       <td><a href="index.php?action=pdf&numero<?php echo $i?>"><img src="images/pdf.jpg"/></a></td>
-                       <td><a href="index.php?action=sup&numero<?php echo $i?>"><img src="images/sup.jpg"/></a></td>
+                       <td><a href="index.php?action=pdf&numero=<?php echo $i?>"><img src="images/pdf.jpg"/></a></td>
+                       <td><a href="index.php?action=sup&numero=<?php echo $i?>"><img src="images/sup.jpg"/></a></td>
                    </tr>
                    <?php $i ++;
                  } ?>

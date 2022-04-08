@@ -40,7 +40,7 @@ if(!isset($_REQUEST['action']))
 
 
                     case 'inscription':
-                        //Affiché la listes des inscrit
+                        
                         $recupnum = $_REQUEST["numero"];
                         include ("vues/inscription.php");
                         break;
@@ -91,8 +91,21 @@ if(!isset($_REQUEST['action']))
 
                         case 'sup':
 
-                            header("vues/list_inscription.php");
+                        $list_inscrit = inscrit();
+                        $recupnum = $_REQUEST["numero"];
+
+                        var_dump($list_inscrit) ;
+
+                        
+                        $idAd=  $list_inscrit[$recupnum]['idAd'];
+                        $idC =  $list_inscrit[$recupnum]['idC'];
+
+
+                       sup($idAd,$idC);
                             
+                       $list_inscrit = inscrit();
+                       include("vues/list_inscription.php");
+                           
                             break;
 
                       case 'pdf':
