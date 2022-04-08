@@ -67,7 +67,7 @@ function validerinscription($tableau)
          $req1 = "insert into adherents (id)
                   Values (?)";
           // Values ($idpers)"; ↑ injection sql pour vérifié la valeur on met  ça ? 
-          echo $req1;
+          // echo $req1;
           $res1 = $dbh ->prepare($req1);
           $res1 -> bindParam(1, $idpers);
           $res1 -> execute();
@@ -76,7 +76,12 @@ function validerinscription($tableau)
           $req2 = "insert into inscription (idAdherent,idCours)
           Values (?,?)";
           // Values ($idpers,$recupnum)";
-          echo $req2;
+         
+          $recupnum  = $tableau[5] ;
+
+          echo $idpers ;
+          echo "<br>";
+          echo $recupnum ;
           $res2 = $dbh ->prepare($req2);
           // injection SQL ↓
           $res2 ->bindParam(1,$idpers);
