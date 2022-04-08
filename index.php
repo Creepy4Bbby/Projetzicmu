@@ -38,11 +38,14 @@ if(!isset($_REQUEST['action']))
                     include ("vues/list_inscription.php");
                     break;
 
+
                     case 'inscription':
                         //Affiché la listes des inscrit
                         $recupnum = $_REQUEST["numero"];
                         include ("vues/inscription.php");
                         break;
+
+
               
 
 //Permet de ( qd tu cliques sur le bouton inscrire ) ça va dessus ↓ 
@@ -82,11 +85,22 @@ if(!isset($_REQUEST['action']))
                         
                         include ("vues/message.php");
                         $list_inscrit = inscrit();
+                        // var_dump($list_inscrit);
                        include("vues/list_inscription.php");
-    
                         break;
 
-                      
+                        case 'sup':
+
+                            header("vues/list_inscription.php");
+                            
+                            break;
+
+                      case 'pdf':
+                           
+                            $list_inscrit = inscrit();
+                            include("vues/list_inscription.php");
+                            break;
+
 
                         
                         }

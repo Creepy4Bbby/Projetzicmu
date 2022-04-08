@@ -17,7 +17,7 @@
 						<!-- Logo -->
 							<h1 id="logo"><a href="index.html">ZIC MU </a></h1>
 							<p>Conservatoire de musique intranet</p>
-
+						
 					</div>
 				</section>
 
@@ -32,7 +32,7 @@
 
 								<!-- Feature -->
 									<section>
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+										<a href="#" class="image featured"><img src="images/test.jpg" alt="" /></a>
 										<header>
 											<h3>Okay, so what is this?</h3>
 										</header>

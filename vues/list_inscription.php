@@ -15,22 +15,36 @@
            <thead>
                <tr>
                    <td>Adhérent</td>
+                   <td>Date/Heures</td>
                    <td>Places</td>
                    <td>Professeur</td>
                    <td>Instrument</td>
-                   <td><?php $nbsp ?></td>
+                   <td> Numéro de cours</td>
+                   <td>PDF </td>
+                   <td>Supprimé</td>
                </tr>
            </thead>
            <tbody>
            
-               <?php foreach ($list_inscrit as $element):?>
+             <?php   
+
+                $i = 0;
+                
+                foreach ($list_inscrit as $element){?>
                    <tr>
-                   <td><?php echo $element['nom'],'   ',$element['prenom']; ?></td>
-                       <td><?php echo $element['nbPlace']; ?></td>
-                       <td><?php echo $element['idInstrument']; ?></td>
-                       <td><?php echo $element['id']?></td>
+                     <td><?php echo $element['nomAd'],'   ',$element['prenomAd']; ?></td>
+                      <td><?php echo $element['date']; ?></td>
+                       <td><?php echo $element['place']; ?></td>
+                       <td><?php echo $element['nomProf'],'   ',$element['prenomProf']; ?></td>
+                       <td><?php echo $element['instru']; ?></td>
+                      <!-- //echo $element['idAd'] -->
+                       <td><?php echo $element['idC']?></td> 
+                              <!-- echo $i;  -->
+                       <td><a href="index.php?action=pdf&numero<?php echo $i?>"><img src="images/pdf.jpg"/></a></td>
+                       <td><a href="index.php?action=sup&numero<?php echo $i?>"><img src="images/sup.jpg"/></a></td>
                    </tr>
-                   <?php endforeach; ?>
+                   <?php $i ++;
+                 } ?>
                
            </tbody>
        </table>
