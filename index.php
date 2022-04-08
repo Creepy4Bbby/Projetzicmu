@@ -81,7 +81,9 @@ if(!isset($_REQUEST['action']))
                         validerinscription($tableau);
                         
                         include ("vues/message.php");
-                        include("vues/list_inscription.php");
+                        $list_inscrit = inscrit();
+                       include("vues/list_inscription.php");
+    
                         break;
 
                       

@@ -6,8 +6,6 @@ function recupcour()
 {
     
 
-    
-
     include 'db_connection.php';
 
     // pour inner join faire : nom de la table . nom du champs
@@ -52,7 +50,7 @@ function validerinscription($tableau)
 
 
 
- $req0 = "select id from personne 
+         $req0 = "select id from personne 
           WHERE  nom = '$tableau[0]' and 
                  prenom = '$tableau[1]' and 
                  tel = '$tableau[2]'";
@@ -60,7 +58,6 @@ function validerinscription($tableau)
     
          $res0 = $dbh ->prepare($req0);
          $res0 -> execute();
-
           $idpers =$res0 ->fetch()[0];
 
 
@@ -68,16 +65,22 @@ function validerinscription($tableau)
         
 
          $req1 = "insert into adherents (id)
-          Values ($idpers)";
+                  Values (?)";
+          // Values ($idpers)"; ↑ injection sql pour vérifié la valeur on met  ça ? 
           echo $req1;
           $res1 = $dbh ->prepare($req1);
+          $res1 -> bindParam(1, $idpers);
           $res1 -> execute();
 
      
-          $req2 = "insert into inscription (id,idCours)
-          Values ($idpers)";
+          $req2 = "insert into inscription (idAdherent,idCours)
+          Values (?,?)";
+          // Values ($idpers,$recupnum)";
           echo $req2;
-          $res2 = $dbh ->prepare($req1);
+          $res2 = $dbh ->prepare($req2);
+          // injection SQL ↓
+          $res2 ->bindParam(1,$idpers);
+          $res2 ->bindParam(2,$recupnum);
           $res2 -> execute();
 
 
