@@ -74,6 +74,11 @@ function validerinscription($tableau)
           $res1 -> execute();
 
      
+          $req2 = "insert into inscription (id,idCours)
+          Values ($idpers)";
+          echo $req2;
+          $res2 = $dbh ->prepare($req1);
+          $res2 -> execute();
 
 
 // ancienne valeur - 1 pour update 
@@ -102,10 +107,12 @@ include 'db_connection.php';
 // professeur qui assure le cours
 // et l'instrument
 
-$req = " SELECT * FROM projetmusic personne WHERE id = 73 ";
-        
-       
+$req = " select nom, prenom, from personne ";
 
+// $req="select c.id, c.jourheure,c.nbPlace,c.idInstrument,p.nom from cours c
+// inner join professeurs pr on c.idProfesseur = pr.id 
+// inner join personne p on p.id = pr.id";
+        
           $res = $dbh ->prepare($req);
           $res -> execute();
 

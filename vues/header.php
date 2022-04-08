@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="bandeau">
+    <!-- <div id="bandeau"> -->
         <!-- image en entete -->
    
     </div>
@@ -19,9 +19,18 @@
 <a href="index.php?action=cours">Cours</a>
 <a href="index.php?action=inscription">Inscription</a> -->
 
+	<!-- Header -->
+    <!-- <section id="header">
+					<div class="container">
+
+					 Logo -->
+							<!-- <h1 id="logo"><a href="index.html">ZIC MU </a></h1>
+							<p>Conservatoire de musique intranet</p> --> 
+
 						<!-- Nav -->
                         <center>
                         <nav id="nav">
+                            
 								<ul>
 									<li><a class="icon solid fa-home" href="index.php?action=accueil"><span>Accueil</span></a></li>
 									<li><a class="icon solid fa-cog" href="index.php?action=cours"><span>Cours</span></a></li>

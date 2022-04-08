@@ -8,7 +8,7 @@
     <title>Cours</title>
 </head>
 <body>
-    <h1><center>Voir liste d'inscription</center> </h1>
+    <center>Voir liste d'inscription</center> 
 
 
     <table>
