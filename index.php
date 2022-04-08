@@ -120,22 +120,36 @@ if(!isset($_REQUEST['action']))
                        $list_inscrit = inscrit();
                        include("vues/list_inscription.php");
                        break;
-                       
+
 // ________________________________________________________________________________________________
 
 
                       case 'pdf':
                            
                             $list_inscrit = inscrit();
-                            include("vues/list_inscription.php");
+                            $recupnum = $_REQUEST["numero"];
+                            $uneInscription = $list_inscrit[$recupnum];
+                            include("vues/pdf_inscription.php");
+                            affPdf($uneInscription);
+                            
                             break;
 
 
                         
                         }
     
+// ________________________________________________________________________________________________
 
-           
+                        
+                        // case 'connexion':
+                                                
+                        
+                        //     include("vues/connexion_1.php");
+                        //     break;
+
+
+// end fonction
+// }
 
 
 

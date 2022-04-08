@@ -160,21 +160,26 @@ function sup($idAd,$idC){
 
         include 'db_connection.php';
 
-        
+
   $req = "delete from inscription
           where  idAdherent = ? and idCours = ? ";
 
          echo $idAd;
          echo $idC;
 
-
         $res = $dbh ->prepare($req);
         $res ->bindParam(1,$idAd);
         $res ->bindParam(2,$idC);
         $res ->execute();
 
+
+//         $recupnum  = $tableau[5] ;
   
-  
+//   $req0 = "Update cours
+//           From nbPlace = nbPlace + 1
+//           Where id = $recupnum";
+
+         
 
 
 
