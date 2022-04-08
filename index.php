@@ -22,6 +22,8 @@ if(!isset($_REQUEST['action']))
                     include ("vues/accueil.php");
                     break;
 
+// ________________________________________________________________________________________________
+
                 case 'cours':
                     //stocké dans une variable liste cours
                     $listcours = recupcour();
@@ -31,12 +33,16 @@ if(!isset($_REQUEST['action']))
                     include("vues/cours.php");
                     break;
 
+  // ________________________________________________________________________________________________  
+
          
                 case 'list_inscription':
                     //Affiché la listes des inscrit
                     $list_inscrit = inscrit();
                     include ("vues/list_inscription.php");
                     break;
+
+// ________________________________________________________________________________________________
 
 
                     case 'inscription':
@@ -46,7 +52,7 @@ if(!isset($_REQUEST['action']))
                         break;
 
 
-              
+ // ________________________________________________________________________________________________             
 
 //Permet de ( qd tu cliques sur le bouton inscrire ) ça va dessus ↓ 
                 case 'validerInscription':
@@ -89,24 +95,34 @@ if(!isset($_REQUEST['action']))
                        include("vues/list_inscription.php");
                         break;
 
+
+// ________________________________________________________________________________________________
+
+                    // Suprimé ****
                         case 'sup':
 
+                        // Toutes les inscriptions sont récupérées
                         $list_inscrit = inscrit();
+
+                        // numero de la ligne d'une inscription 
                         $recupnum = $_REQUEST["numero"];
 
-                        var_dump($list_inscrit) ;
+                        // var_dump($list_inscrit) ;
 
-                        
+                     // Je recupere les valeur le numéro du cours et adhérent de la ligne récupérée
                         $idAd=  $list_inscrit[$recupnum]['idAd'];
                         $idC =  $list_inscrit[$recupnum]['idC'];
 
-
+                    // J'appele la fonction qui permet de supprimé 
                        sup($idAd,$idC);
-                            
+                    
+                    //    Reafffiché la page apres le sup 
                        $list_inscrit = inscrit();
                        include("vues/list_inscription.php");
-                           
-                            break;
+                       break;
+                       
+// ________________________________________________________________________________________________
+
 
                       case 'pdf':
                            
