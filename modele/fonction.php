@@ -161,6 +161,7 @@ function sup($idAd,$idC){
 
         include 'db_connection.php';
 
+//Sup d'une ligen dans le tableau d'inscription
 
   $req = "delete from inscription
           where  idAdherent = ? and idCours = ? ";
@@ -175,7 +176,8 @@ function sup($idAd,$idC){
 
         echo $idC;
  
-  
+// de ce fait ajout de la place retiré du tableau 
+
    $req0 = "Update cours
           SET nbPlace = nbPlace + 1
          Where id = ?";
