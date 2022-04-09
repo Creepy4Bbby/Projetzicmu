@@ -151,6 +151,7 @@ inner join instrument as i on i.id = c.idInstrument
 // end fonction
 }
 
+// __________________________________________________________________________________________________________________
 
 // Supprimé une ligne d'inscription 
 
@@ -164,22 +165,24 @@ function sup($idAd,$idC){
   $req = "delete from inscription
           where  idAdherent = ? and idCours = ? ";
 
-         echo $idAd;
-         echo $idC;
+        //  echo $idAd;
+        //  echo $idC;
 
         $res = $dbh ->prepare($req);
         $res ->bindParam(1,$idAd);
         $res ->bindParam(2,$idC);
         $res ->execute();
 
-
-//         $recupnum  = $tableau[5] ;
+        echo $idC;
+ 
   
-//   $req0 = "Update cours
-//           From nbPlace = nbPlace + 1
-//           Where id = $recupnum";
+   $req0 = "Update cours
+          SET nbPlace = nbPlace + 1
+         Where id = ?";
 
-         
+        $res1 = $dbh ->prepare($req0);
+        $res1 ->bindParam(1,$idC);
+        $res1 ->execute();
 
 
 

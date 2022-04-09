@@ -3,6 +3,7 @@
 Function affPdf($tab){
 
 
+
 // permet d'inclure la bibliothèque fpdf
 require('PDF/fpdf.php');
 
@@ -16,7 +17,7 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
 
 // affiche du texte
-$pdf->Cell(40,10,'Voici un Pdf !');
+$pdf->Cell(40,10,);
 
 // Enfin, le document est terminé et envoyé au navigateur grâce à Output().
 
