@@ -19,32 +19,32 @@ Function affPdf($tab){
     require('PDF/fpdf.php');
 
 
-    $pdf = new FPDF('L','mm','A4');
+    $pdf = new FPDF('L','mm','A5');
+ 
     $pdf ->SetLineWidth(1.5);
+    
     // Titres des colonnes
     $header = array('Nom ', 'Prénom', 'Jour et heure', 'Professeur', 'Instrument');
     // Chargement des données
     //$data = $pdf->LoadData('pays.txt');
     $pdf->AddPage();
 
+    $pdf->Image('images/Conservatoire.jpg',100,9, 50, 40);
+
     $pdf->SetFont('Courier','BIU',18);
-    $pdf ->Cell(180,10,'ZIK-MU','LTRB', '0', 'C');
-    $pdf-> Ln();
-    $pdf->SetFont('Helvetica','BI',16);
-    $pdf ->Cell(40,15,'Le conservatoire de musique pour monter en competence');
- 
+    $pdf ->Cell(172,10,'ZIK-MU','LTRB', '0', 'C');
+    
+  
 
     $pdf-> Ln();
     $pdf-> Ln(); 
     $pdf-> Ln();
     $pdf-> Ln();
+    $pdf-> Ln(); 
     $pdf-> Ln();
-    $pdf-> Ln();
-
-    // $pdf->Image('images/conservatoires.jpg',48,35, 110, 60);
 
     $pdf ->SetLineWidth(0.7);
-    $pdf ->Line(0, 100, 220, 100);
+    $pdf ->Line(0, 100, 300, 100);
 
     $pdf->SetFont('Arial','',13);
     $pdf -> cell(40, 10, 'Voici un recapitulatif de votre inscription:',0, 0, 2);
