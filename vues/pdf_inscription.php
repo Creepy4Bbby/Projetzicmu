@@ -29,13 +29,11 @@ Function affPdf($tab){
     //$data = $pdf->LoadData('pays.txt');
     $pdf->AddPage();
 
-    $pdf->Image('images/Conservatoire.jpg',100,9, 50, 40);
+    $pdf->Image('images/Conservatoire.jpg',100,10, 80, 40);
 
     $pdf->SetFont('Courier','BIU',18);
     $pdf ->Cell(172,10,'ZIK-MU','LTRB', '0', 'C');
     
-  
-
     $pdf-> Ln();
     $pdf-> Ln(); 
     $pdf-> Ln();
