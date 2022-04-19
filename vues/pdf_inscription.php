@@ -29,26 +29,34 @@ Function affPdf($tab){
     //$data = $pdf->LoadData('pays.txt');
     $pdf->AddPage();
 
-    $pdf->Image('images/Conservatoire.jpg',100,10, 80, 40);
-
+    $pdf->Image('images/Conservatoire.jpg',40,25, 130, 70);
+  
+   
+ 
     $pdf->SetFont('Courier','BIU',18);
-    $pdf ->Cell(172,10,'ZIK-MU','LTRB', '0', 'C');
-    
-    $pdf-> Ln();
+    $pdf ->Cell(190,10,'ZIK-MU','LTRB', '0', 'C');
+  
     $pdf-> Ln(); 
     $pdf-> Ln();
     $pdf-> Ln();
     $pdf-> Ln(); 
+    $pdf-> Ln();
     $pdf-> Ln();
 
     $pdf ->SetLineWidth(0.7);
-    $pdf ->Line(0, 100, 300, 100);
+ 
 
+    $pdf-> Ln();
+    $pdf-> Ln(); 
+    $pdf-> Ln();
+    
+   
+   
     $pdf->SetFont('Arial','',13);
     $pdf -> cell(40, 10, 'Voici un recapitulatif de votre inscription:',0, 0, 2);
 
     $pdf-> Ln();
-    $pdf ->SetLineWidth(0.2);
+    
     $pdf->SetFont('Times','B',16);
     $w = array(30, 30, 60, 30, 30);
      // En-tête
@@ -64,18 +72,9 @@ Function affPdf($tab){
      $pdf->Cell($w[4],6,$tab['instru'],1,'LR', 'C');
      $pdf->Ln();
 
-     // Trait de terminaison
-     $pdf->Cell(array_sum($w),0,'','T');
+ 
 
-     $pdf-> Ln();
-
-     $pdf ->SetLineWidth(0.7);
-     $pdf ->Line(0, 145, 220, 145);
-
-     $pdf->SetFont('Arial','',13);
-     $pdf -> cell(40, 40, 'Voici un recapitulatif de votre inscription:',0, 0, 2);
-
-     $pdf-> Ln();
+    
 
      $pdf -> SetY(-26);
      $pdf ->SetLineWidth(0.1);
