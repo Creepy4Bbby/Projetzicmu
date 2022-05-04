@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 19 avr. 2022 à 21:29
+-- Généré le : mar. 19 avr. 2022 à 15:46
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `adherents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `niveau` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `adherents`
@@ -70,8 +70,7 @@ INSERT INTO `adherents` (`id`, `niveau`) VALUES
 (100, NULL),
 (101, NULL),
 (102, NULL),
-(103, NULL),
-(107, NULL);
+(103, NULL);
 
 -- --------------------------------------------------------
 
@@ -89,15 +88,7 @@ CREATE TABLE IF NOT EXISTS `cours` (
   PRIMARY KEY (`id`),
   KEY `fk_professeur` (`idProfesseur`),
   KEY `fk_instrument` (`idInstrument`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `cours`
---
-
-INSERT INTO `cours` (`id`, `jourheure`, `nbPlace`, `idProfesseur`, `idInstrument`) VALUES
-(1, '12/08 09 h ', 39, 104, 1),
-(2, '02/03 15 h ', 8, 105, 2);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -113,13 +104,6 @@ CREATE TABLE IF NOT EXISTS `inscription` (
   PRIMARY KEY (`idAdherent`,`idCours`),
   KEY `fk_cours` (`idCours`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `inscription`
---
-
-INSERT INTO `inscription` (`idAdherent`, `idCours`, `paye`) VALUES
-(107, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `adresse` varchar(200) NOT NULL,
   `mail` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `personne`
@@ -227,8 +211,7 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`, `tel`, `adresse`, `mail`) VALUES
 (103, 'd', 'd', '685', 'dqsq', 'L@A'),
 (104, 'dejean', 'Marie', '78829495263', '10 rue de la république', 'dejean@free.com'),
 (105, 'elon', 'musk', '589243675', '44 rue de la musique', 'o@k.com'),
-(106, 'huji', 'pauline', '569314862', '1 rue du poulet', 'o@o'),
-(107, 'Test', 'test', '13514562', 'test rue des tests', 'test@gtest.com');
+(106, 'huji', 'pauline', '569314862', '1 rue du poulet', 'o@o');
 
 --
 -- Déclencheurs `personne`
