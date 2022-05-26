@@ -1,18 +1,78 @@
 <?php
 
+session_start();
 include 'vues/header.php';
 require 'modele/fonction.php';
+
+
+
+if (!isset($_SESSION["is_loged"]))
+{
+    $_SESSION["is_loged"] = "false";
+}
+
+//$is_loged= $_SESSION["is_loged"];
+
+
 
 //comportment qui va avoir suivant tel ou tel truc 
 
 if(!isset($_REQUEST['action']))
             {    
-                $action = 'accueil';
+                // $action = 'accueil';
+
+                if (!isset($_SESSION["id"]))
+                {
+                    echo("pas de session");
+                    $action = 'connexion';
+                    echo $action;
+                }
+                 else{
+                        $action = 'acceuil';
+                        echo ("ya session");
+                        echo $action;
+                    
+                   }
 
             }else {   
                 
-             $action = $_REQUEST['action'];
+            //  $action = $_REQUEST['action'];
+            $action = $_REQUEST['action'];
+
+            if ($action == 'validerConnexion')
+                {
+                    if (isset ($_POST["seconnecter"]))
+                        {
+                            echo ("après if");
+                            $login = htmlspecialchars(isset($_POST['login']))? $_POST['login'] : '' ;
+                            $mdp = htmlspecialchars(isset($_POST['mdp']))? $_POST['mdp'] : '' ;
+
+                            echo $login;
+                            echo $mdp;
+                            $res = seConnecter($login, $mdp);
+
+                            if (!is_array($res))
+                                {
+                                    include("../vues/connexion.php");
+                            } else{
+
+                                $_SESSION['is_loged'] = "true";
+                                //$_SESSION["id"] = $res['id'];
+                                connect($res['id']);
+                                //$action = 'acceuil';
+                                header("Location: index.php?action=acceuil");
+                                    
+                                }
+                        }
+
+                }
             }
+
+                 
+        if (!isset($_SESSION["id"]) && isset($_REQUEST['action']))
+        {
+            $action ='connexion';
+        }
            
 //action pour la page 
         switch ($action)
@@ -132,15 +192,22 @@ if(!isset($_REQUEST['action']))
                             include("vues/pdf_inscription.php");
                             affPdf($uneInscription);
                             
-                            break;
+                            // break;
 
-
+                            case 'deconnexion':
+                                deconnexion();
+                                $action = 'connexion';
+                                header("Location: index.php");
+                                break;
+                            default : 
+                            include ("../vues/accueil.php");
                         
                         }
     
 // ________________________________________________________________________________________________
 
-                        
+
+
                         // case 'connexion':
                                                 
                         
