@@ -53,7 +53,7 @@ if(!isset($_REQUEST['action']))
 
                             if (!is_array($res))
                                 {
-                                    include("../vues/connexion.php");
+                                    include("vues/connexion.php");
                             } else{
 
                                 $_SESSION['is_loged'] = "true";
@@ -200,7 +200,7 @@ if(!isset($_REQUEST['action']))
                                 header("Location: index.php");
                                 break;
                             default : 
-                            include ("../vues/accueil.php");
+                            include ("vues/accueil.php");
                         
                         }
     
