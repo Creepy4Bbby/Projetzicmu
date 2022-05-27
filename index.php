@@ -23,14 +23,14 @@ if(!isset($_REQUEST['action']))
 
                 if (!isset($_SESSION["id"]))
                 {
-                    echo("pas de session");
+                    // echo("pas de session");
                     $action = 'connexion';
-                    echo $action;
+          
                 }
                  else{
-                        $action = 'acceuil';
+                        $action = 'accueil';
                         echo ("ya session");
-                        echo $action;
+                    
                     
                    }
 
@@ -41,26 +41,29 @@ if(!isset($_REQUEST['action']))
 
             if ($action == 'validerConnexion')
                 {
-                    if (isset ($_POST["seconnecter"]))
+                    if (isset ($_POST["seConnecter"]))
                         {
-                            echo ("après if");
+                            // echo ("après if");
                             $login = htmlspecialchars(isset($_POST['login']))? $_POST['login'] : '' ;
                             $mdp = htmlspecialchars(isset($_POST['mdp']))? $_POST['mdp'] : '' ;
 
+                            $resu = seConnecter($login, $mdp); 
+                            print_r ($resu);
+
                             echo $login;
                             echo $mdp;
-                            $res = seConnecter($login, $mdp);
+                                                      
 
-                            if (!is_array($res))
+                            if (!is_array($resu))
                                 {
                                     include("vues/connexion.php");
                             } else{
 
                                 $_SESSION['is_loged'] = "true";
-                                //$_SESSION["id"] = $res['id'];
-                                connect($res['id']);
+                                //$_SESSION["id"] = $res['id']; 
+                                connect($resu['id']);
                                 //$action = 'acceuil';
-                                header("Location: index.php?action=acceuil");
+                                header("Location: index.php?action=accueil");
                                     
                                 }
                         }
@@ -194,6 +197,10 @@ if(!isset($_REQUEST['action']))
                             
                             // break;
 
+                            case 'connexion':
+                                include("vues/connexion.php");
+                                  break;
+
                             case 'deconnexion':
                                 deconnexion();
                                 $action = 'connexion';
@@ -208,11 +215,7 @@ if(!isset($_REQUEST['action']))
 
 
 
-                        // case 'connexion':
-                                                
-                        
-                        //     include("vues/connexion_1.php");
-                        //     break;
+              
 
 
 // end fonction

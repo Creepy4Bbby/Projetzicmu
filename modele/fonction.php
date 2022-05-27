@@ -1,5 +1,6 @@
 <?php
 
+
 // Récupére la listes des cours : 
 
 
@@ -193,4 +194,37 @@ function sup($idAd,$idC){
 // END FONCTION
 }
 
+
+function seConnecter($login,$mdp)
+{
+    include 'db_connection.php';
+
+    // 1) select login et mdp ****
+
+  $req = "select id, count(*) as nb from user WHERE login = '$login' and mdp = '$mdp'";
+
+          $res = $dbh ->prepare($req);
+        //   $res -> bindParam(1,$login);
+        //   $res -> bindParam(2,$mdp);
+          $res -> execute();
+
+      $var = $res-> fetch(PDO::FETCH_ASSOC);
+
+      return($var);
+
+// end fonction
+}
+
+
+function connect($id)
+{
+
+        $_SESSION['id'] = $id;
+
+// end fonction
+}
+function deconnexion()
+{
+        session_destroy();
+}
 ?>
