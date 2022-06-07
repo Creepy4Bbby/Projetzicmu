@@ -41,8 +41,8 @@ function validerinscription($tableau)
 
     // 1) insertion de personne ****
 
-  $req = "insert into personne (nom,prenom,tel,adresse,mail)
-          Values ('$tableau[0]','$tableau[1]','$tableau[2]','$tableau[3]','$tableau[4]')";
+  $req = "insert into personne (nom,prenom,tel,adresse,mail,niveau)
+          Values ('$tableau[0]','$tableau[1]','$tableau[2]','$tableau[3]','$tableau[4]','$tableau[6])";
 
           $res = $dbh ->prepare($req);
           $res -> execute();
@@ -126,7 +126,7 @@ include 'db_connection.php';
 
 $req = " select pers.nom as nomAd, pers.prenom as prenomAd, c.jourHeure as date, 
 c.nbPlace as place, pers1.nom as nomProf, pers1.prenom as prenomProf, i.nom as instru,
-ins.idAdherent as idAd, ins.idCours as idC
+ins.idAdherent as idAd, ins.idCours as idC, pers.mail as mail
 
 from inscription ins
 inner join adherents as a on a.id = ins.idAdherent
@@ -186,9 +186,6 @@ function sup($idAd,$idC){
         $res1 = $dbh ->prepare($req0);
         $res1 ->bindParam(1,$idC);
         $res1 ->execute();
-
-
-
 
 
 // END FONCTION

@@ -132,6 +132,7 @@ if(!isset($_REQUEST['action']))
                         $tel = htmlspecialchars(isset($_POST['tel']))? $_POST['tel'] : '' ;
                         $adresse = htmlspecialchars(isset($_POST['adresse']))? $_POST['adresse'] : '' ;
                         $mail= htmlspecialchars(isset($_POST['mail']))? $_POST['mail'] : '' ;
+                       
                                     // if (!filter_input(INPUT_POST, 'mail', FILTER_VALIDATE_EMAIL))
                                     // {
                                     // echo "E-Mail is not valid";
@@ -141,11 +142,12 @@ if(!isset($_REQUEST['action']))
                                     // echo "E-Mail is valid";
                                     // }
                         $numero= htmlspecialchars(isset($_POST['numero']))? $_POST['numero'] : '' ;
+                        $niveau= htmlspecialchars(isset($_POST['niveau']))? $_POST['niveau'] : '' ;
 
 
                      
                              //tableau :
-                             $tableau = array($nom,$prenom,$tel,$adresse,$mail,$numero);
+                             $tableau = array($nom,$prenom,$tel,$adresse,$mail,$numero,$niveau);
                              
                         }
                         

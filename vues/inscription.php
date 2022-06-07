@@ -16,6 +16,7 @@
    tel :  <input type="phone" name="tel" placeholder="Entrez le numéro de téléphone"></input><br><br>
    adresse : <input type="text" name="adresse" placeholder="Entrez l'adresse"></input><br><br>
    @ : <input type="email" name="mail" placeholder="Entrez l'email"></input><br><br>
+   niveau : <input type="niveau" name="niveau" placeholder="Entrez le niveau"></input><br><br>
    <input type='hidden' value=<?php echo $recupnum ?> name='numero'> 
 <br>
 <input type="submit" name="validerinscription" value="Valider"></input>

@@ -3,7 +3,6 @@
 // permet d'inclure la bibliothèque fpdf
 // require('PDF/fpdf.php');
 
-
 // instancie un objet de type FPDF qui permet de créer le PDF
 // $pdf=new FPDF('L','mm','A4');
 
@@ -24,7 +23,7 @@ Function affPdf($tab){
     $pdf ->SetLineWidth(1.5);
     
     // Titres des colonnes
-    $header = array('Nom ', 'Prénom', 'Jour et heure', 'Professeur', 'Instrument');
+    $header = array('Nom ', 'Prénom', 'Jour et heure', 'Professeur', 'Instrument', 'mail');
     // Chargement des données
     //$data = $pdf->LoadData('pays.txt');
     $pdf->AddPage();
@@ -51,14 +50,13 @@ Function affPdf($tab){
     $pdf-> Ln();
     
    
-   
     $pdf->SetFont('Arial','',13);
     $pdf -> cell(40, 10, 'Voici un recapitulatif de votre inscription:',0, 0, 2);
 
     $pdf-> Ln();
     
     $pdf->SetFont('Times','B',16);
-    $w = array(30, 30, 60, 30, 30);
+    $w = array(30, 30, 40, 30, 30,20);
      // En-tête
     for($i=0;$i<count($header);$i++)
     $pdf->Cell($w[$i],7,utf8_decode($header[$i]),1,0,'C');
@@ -70,12 +68,10 @@ Function affPdf($tab){
      $pdf->Cell($w[2],6,$tab['date'],1,'LR', 'C');
      $pdf->Cell($w[3],6,$tab['nomProf'],1,'LR', 'C');
      $pdf->Cell($w[4],6,$tab['instru'],1,'LR', 'C');
+     $pdf->Cell($w[3],6,$tab['mail'],1,'LR', 'C');
      $pdf->Ln();
 
  
-
-    
-
      $pdf -> SetY(-26);
      $pdf ->SetLineWidth(0.1);
      $pdf -> SetTextColor(255,0,0);
@@ -83,10 +79,8 @@ Function affPdf($tab){
      $pdf->SetFont('Courier','BI',10);
 
 
-
      ob_end_clean();
      $pdf->Output();
-
 
 
 }
