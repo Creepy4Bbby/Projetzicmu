@@ -61,7 +61,7 @@ function validerinscription($tableau)
     
          $res0 = $dbh ->prepare($req0);
          $res0 -> execute();
-          $idpers =$res0 ->fetch()[0];
+         $idpers =$res0 ->fetch()[0];
 
 
    //   j'insere le tout dans inscription et adherent $req0 et $req1 : 
@@ -135,7 +135,8 @@ inner join professeurs as prof on prof.id = c.idProfesseur
 inner join personne as pers on pers.id = a.id
 inner join personne as pers1 on pers1.id = prof.id
 inner join instrument as i on i.id = c.idInstrument 
-                                          ";
+
+";
                           
           $res = $dbh ->prepare($req);
           $res -> execute();
@@ -191,7 +192,6 @@ function sup($idAd,$idC){
 // END FONCTION
 }
 
-
 function seConnecter($login,$mdp)
 {
     include 'db_connection.php';
@@ -211,6 +211,25 @@ function seConnecter($login,$mdp)
 
 // end fonction
 }
+
+function seConnecterSalairier($login,$mdp)
+{
+    include 'db_connection.php';
+
+
+ $req44 = "select count(*) from salaries WHERE login = '$login' and mdp = '$mdp'";
+  //$req44 = "select id, count(*) as nb from user WHERE login = '$login' and mdp = '$mdp'";
+
+          $res = $dbh ->prepare($req44);
+          $res -> execute();
+
+      $var = $res-> fetch(PDO::FETCH_ASSOC);
+
+      return($var);
+
+// end fonction
+}
+
 
 
 function connect($id)

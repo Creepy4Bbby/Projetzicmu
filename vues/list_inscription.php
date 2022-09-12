@@ -20,6 +20,7 @@
                    <td>Professeur</td>
                    <td>Instrument</td>
                    <td> Numéro de cours</td>
+                   <td> nom Salarié</td>
                    <td>PDF </td>
                    <td>Supprimé</td>
                </tr>
@@ -40,6 +41,7 @@
                       <!-- //echo $element['idAd'] -->
                        <td><?php echo $element['idC']?></td> 
                               <!-- echo $i;  -->
+                              <td><?php echo $element['nom']?></td> 
                        <td><a href="index.php?action=pdf&numero=<?php echo $i?>"><img src="images/pdf.jpg"/></a></td>
                        <td><a href="index.php?action=sup&numero=<?php echo $i?>"><img src="images/sup.jpg"/></a></td>
                    </tr>

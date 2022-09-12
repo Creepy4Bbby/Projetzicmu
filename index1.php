@@ -44,7 +44,7 @@ if(!isset($_REQUEST['action']))
                             $login = htmlspecialchars(isset($_POST['login']))? $_POST['login'] : '' ;
                             $mdp = htmlspecialchars(isset($_POST['mdp']))? $_POST['mdp'] : '' ;
 
-                            $resu = seConnecter($login, $mdp); 
+                            $resu = seConnecterSalairier($login, $mdp); 
                             print_r ($resu);
 
                             echo $login;

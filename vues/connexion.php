@@ -14,5 +14,5 @@
     Mot de passe : 
         <input type="password" name ="mdp" placeholder = "Entrez votre mot de passe" required> <br>
         <center> <input type="submit" name = "seConnecter" value="Se connecter">
-</form>
+   
     </div></center>
